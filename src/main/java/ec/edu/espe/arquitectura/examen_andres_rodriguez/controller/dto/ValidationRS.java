@@ -1,10 +1,13 @@
 package ec.edu.espe.arquitectura.examen_andres_rodriguez.controller.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ValidationRS {
     private String MES;
     private String RUC_EMPRESA;

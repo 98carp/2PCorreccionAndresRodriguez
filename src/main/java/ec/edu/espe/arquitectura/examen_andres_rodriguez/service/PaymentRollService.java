@@ -27,7 +27,6 @@ public class PaymentRollService {
 
         Float sum = 0.0f;
         for(EmployeePayment employeePayment: paymentRollRQ.getEmployeePayments()){
-            System.out.println("EMPLOYEE: " + employeePayment);
             sum+=employeePayment.getValue();
             employeePayment.setState("PEN");
         }
@@ -35,6 +34,10 @@ public class PaymentRollService {
         paymentRoll.setEmployeePayments(paymentRollRQ.getEmployeePayments());
 
         this.paymentRollRepository.save(paymentRoll);
+    }
+
+    public PaymentRoll findByMonth(String month){
+        return this.paymentRollRepository.findByMonth(month);
     }
 
 }
