@@ -26,7 +26,7 @@ public class ValidationService {
         for (EmployeePayment employeePayment : paymentRoll.getEmployeePayments()){
             employeePayment.setState("BAD");
             for(Employee employee : enterprise.getEmployees()){
-                if (employee.getAccountNumber().equalsIgnoreCase(employeePayment.getAccountNumber())){
+                if (employee.getAccountNumber().equals(employeePayment.getAccountNumber())){
                     employeePayment.setState("VAL");
                 }
             }
@@ -36,9 +36,9 @@ public class ValidationService {
         Integer transactions = 0;
         Integer errors = 0;
         for(EmployeePayment employeePayment : paymentRoll.getEmployeePayments()){
-            if (employeePayment.getState().equalsIgnoreCase("VAL")){
+            if (employeePayment.getState().equals("VAL")){
                 transactions+=1;
-                sumVal=+employeePayment.getValue();
+                sumVal+=employeePayment.getValue();
             }else{
                 errors+=1;
             }
